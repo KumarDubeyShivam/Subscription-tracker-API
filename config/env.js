@@ -18,8 +18,13 @@ config({
 });
 
 export const { PORT,
+    SERVER_URL,
     NODE_ENV,
     MONGODB_URI,
     JWT_SECERT,
-    JWT_EXPIRES_IN
+    JWT_EXPIRES_IN,
+    ARCJET_ENV,
+    ARCJET_KEY,
+    QSTASH_TOKEN, QSTASH_URL,
+    EMAIL_PASSWORD,
 } = process.env;

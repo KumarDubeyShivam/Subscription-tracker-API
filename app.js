@@ -8,16 +8,20 @@ import subscriptionrouter from './routes/subscription.routes.js';
 import connect2database from './database/mongodb.js';
 import errormiddleware from './middlewares/error.middleware.js';
 import  cookieParser from 'cookie-parser';
+import arcjetmiddleware from './middlewares/arcjet.middleware.js';
+import workflowrouter from './routes/workflow.routes.js';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(arcjetmiddleware);
 
 app.use('/api/v1/auth', authrouter);
 app.use('/api/v1/users', userrouter);
 app.use('/api/v1/subscriptions', subscriptionrouter);
+app.use('/api/v1/workflows', workflowrouter);
 
 app.use(errormiddleware);
 
