@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+
+
 const subscriptionschema = new mongoose.Schema({
     name: {
         type: String,

@@ -10,8 +10,18 @@ import errormiddleware from './middlewares/error.middleware.js';
 import  cookieParser from 'cookie-parser';
 import arcjetmiddleware from './middlewares/arcjet.middleware.js';
 import workflowrouter from './routes/workflow.routes.js';
+import cors from 'cors';
+
 
 const app = express();
+
+app.use(cors({
+    origin: 'http://localhost:3000', // allow your Next.js frontend
+    credentials: true, // if you use cookies or authorization headers
+}));
+
+//app.use(cors());
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

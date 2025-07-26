@@ -5,20 +5,21 @@ import { SERVER_URL } from "../config/env.js";
 
 export const createsubscription = async (req, res, next) => {
     try {
-        const subscriptions = await subscription.creat({
+        const subscriptions = await subscription.create({
             ...req.body,
             user: req.user._id,
         });
+        console.log("subscription created succesfully");
 
         const { workflowRunId } = await workflowclient.trigger({
             url: `${SERVER_URL}/api/v1/workflows/subscription/reminder`,
             body: {
-                subscriptionid : subscription.id,
+                subscriptionid : subscriptions.id,
             },
             headers: {
                 'content-type': 'application/json',
             },
-            retries: 0,
+            retries: 2,
         });
 
         res.status(201).json({

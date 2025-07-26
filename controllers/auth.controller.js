@@ -39,6 +39,11 @@ export const signin = async (req, res, next) => {
         });
 
     } catch (error) {
+        res.status(400).json({
+            message: error.message || "Something went wrong",
+            _message: error._message || undefined,
+            errors: error.errors || undefined,
+        });
         next(error);
     }
 };
