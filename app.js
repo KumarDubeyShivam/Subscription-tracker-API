@@ -16,7 +16,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000', // allow your Next.js frontend
+    origin: 'hhttps://subscription-tracker-api-frontend-qpa4sh7b0.vercel.app/', // allow your Next.js frontend
     credentials: true, // if you use cookies or authorization headers
 }));
 
